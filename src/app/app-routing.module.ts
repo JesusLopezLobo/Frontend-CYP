@@ -5,12 +5,21 @@ import { ModuleWithProviders } from '@angular/core';
 // Componentes.
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DefaultComponent } from "./components/default/default.component";
+import { PoesiasNewComponent } from './components/poesias-new/poesias-new.component';
+import { PoesiasEditComponent } from './components/poesias-edit/poesias-edit.component';
+import { PoesiasDetailComponent } from './components/poesias-detail/poesias-detail.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: '', component: DefaultComponent},
+  {path: 'home', component: DefaultComponent},
   {path: 'login', component: LoginComponent},
   {path: 'registro', component: RegisterComponent},
-  {path: '**', component: LoginComponent}
+  {path: 'logout/:sure', component: LoginComponent},
+  {path: 'crear-poesia', component: PoesiasNewComponent},
+  {path: 'editar-poesia/:id', component: PoesiasEditComponent},
+  {path: 'poesia/:id', component: PoesiasDetailComponent},
+  {path: '**', component: DefaultComponent}
 ];
 
 /* export const appRoutingProviders: any[] = [];

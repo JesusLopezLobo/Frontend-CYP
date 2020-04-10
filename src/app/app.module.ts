@@ -7,12 +7,20 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './components/register/register.component';
+import { DefaultComponent } from './components/default/default.component';
+import { PoesiasNewComponent } from './components/poesias-new/poesias-new.component';
+import { PoesiasEditComponent } from './components/poesias-edit/poesias-edit.component';
+import { PoesiasDetailComponent } from './components/poesias-detail/poesias-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DefaultComponent,
+    PoesiasNewComponent,
+    PoesiasEditComponent,
+    PoesiasDetailComponent,
   ],
   imports: [
     BrowserModule,
