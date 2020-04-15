@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('identity', JSON.stringify(this.identity)); // Almacenamos el identity en LocalStorage.
 
               // Redirección.
-              this._router.navigate(['home']);
+              this._router.navigate(['/']);
               
             },
             error => {

@@ -11,6 +11,7 @@ import { DefaultComponent } from './components/default/default.component';
 import { PoesiasNewComponent } from './components/poesias-new/poesias-new.component';
 import { PoesiasEditComponent } from './components/poesias-edit/poesias-edit.component';
 import { PoesiasDetailComponent } from './components/poesias-detail/poesias-detail.component';
+import { InicioComponent } from './components/inicio/inicio.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { PoesiasDetailComponent } from './components/poesias-detail/poesias-deta
     PoesiasNewComponent,
     PoesiasEditComponent,
     PoesiasDetailComponent,
+    InicioComponent,
   ],
   imports: [
     BrowserModule,

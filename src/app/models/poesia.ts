@@ -4,6 +4,7 @@ export class Poesias{
         public title: string,
         public description: string,
         public status: string,
+        public image: string,
         public createdAt: any,
         public updatedAt: any,
     ){}

@@ -1,1 +1,100 @@
-<p>poesias-new works!</p>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card mt-5">
+
+                    <div class="card-body bg-light">
+<!--                         <form>
+                            <div class="form-group">
+                                <label for="name"><h3>Título:</h3>
+                                <p>Título en el que te inspira tu poema.</p></label>
+                                <input type="text" name="" id="" class="form-control col-5">
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><h3>Poesía:</h3>
+                                <p>Escribe el contenido de la poesía.</p></label>
+                                <input type="text" name="" id="" class="form-control col-5">
+                            </div>
+                        </form> -->
+
+                        <div *ngIf="status_poesia == 'error'">
+                            <h6 class="text-danger"><i class="fas fa-exclamation-circle"></i>  Ha ocurrido un error al insertar tu poesía, inténtelo más tarde.</h6>
+                        </div>
+                        <div *ngIf="status_poesia == 'success'">
+                            <h6 class="text-success"><i class="fas fa-exclamation-circle"></i> Su poema se ha guardado en en tu bandeja de poemas con éxito.</h6>
+                        </div>
+
+                        <form #poesianew="ngForm" (ngSubmit)="onSubmit(poesianew)">
+                            <div class="modal-body">
+    
+                                <!-- Titulo -->
+                                <div class="form-group">
+                                    <label for="title"><h3>Título</h3><p class="text-secondary">Escribe aquí el título. Titúlalo como lo sientas, también puedes intentar resumir tu poesía en pocas palabras.</p></label>
+                                    <input type="text" 
+                                    name="title" 
+                                    id="title" 
+                                    class ="form-control col-5"
+                                    #title="ngModel"
+                                    [(ngModel)]="poesia.title"
+                                    [ngClass]="{'is-invalid': title.errors && title.touched}"
+                                    required>
+                                    <div [hidden]="!title.errors?.required" class="invalid-feedback">
+                                    Titulo requerido.
+                                    </div>
+                                </div>
+                                <!-- ========= -->
+    
+                                <!-- Descripción -->
+                                <div class="form-group">
+                                    <label for="description"><h3>Descripción del poema</h3><p class="text-secondary">Escribe una pequeña descripción propia de tu poema.</p></label>
+                                    <input
+                                    name="description"
+                                    class ="form-control col-7"
+                                    #description="ngModel"
+                                    [(ngModel)]="poesia.description"
+                                    [ngClass]="{'is-invalid': description.errors && description.touched}"
+                                    required
+                                    minlength="6">
+                                    <div [hidden]="!description.errors?.required" class="invalid-feedback">
+                                    Contenido requerido.
+                                    </div>
+                                    <div [hidden]="!description.errors?.minlength" class="invalid-feedback">
+                                    Debe contener al menos 3 caracteres.
+                                    </div>
+                                </div>
+                                <!-- ========= -->
+
+                                <!-- Contenido -->
+                                <div class="form-group">
+                                    <label for="image"><h3>Contenido</h3></label>
+                                    <textarea
+                                    name="image"
+                                    class ="form-control"
+                                    #image="ngModel"
+                                    [(ngModel)]="poesia.image"
+                                    [ngClass]="{'is-invalid': image.errors && image.touched}"
+                                    required
+                                    minlength="6"></textarea>
+                                    <div [hidden]="!image.errors?.required" class="invalid-feedback">
+                                    Contenido requerido.
+                                    </div>
+                                    <div [hidden]="!image.errors?.minlength" class="invalid-feedback">
+                                    Debe contener al menos 10 caracteres.
+                                    </div>
+                                </div>
+                                <!-- ========= -->
+                            
+                                <button type="submit" class="btn btn-outline-secondary mt-3"><i class="fas fa-signature"></i> Firmar</button>
+                            
+    
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

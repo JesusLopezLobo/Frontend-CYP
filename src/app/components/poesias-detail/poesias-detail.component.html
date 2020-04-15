@@ -1,1 +1,111 @@
-<p>poesias-detail works!</p>
+<div *ngIf="poesia">
+
+    <form #poesiaForm="ngForm" (ngSubmit)="onSubmit(poesiaForm)">
+        <section class="py-4 m-4 ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <a [routerLink]="['/personal']" class="btn btn-light btn-block"><i class="fas fa-arrow-left"></i> Regresar al espacio personal</a>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-light btn-block botonGuardar" ><i class="fas fa-check"></i> Editar Poesia </button>
+                    </div>
+                    <div class="col-md-2">
+                        <a [routerLink]="['/personal']" class="btn btn-light btn-block botonPublicar"><i class="fas fa-check"></i> Publicar Poesia </a>
+                    </div>
+
+
+            
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div *ngIf="status_poesia == 'success'">
+                            <h6 class="text-success"><i class="fas fa-check"></i> El poema se ha editado correctamente.</h6>
+                        </div>
+                
+                        <div *ngIf="status_poesia == 'error'">
+                            <h6 class="text-danger"><i class="fas fa-exclamation-circle"></i>  El poema no se ha editado correctamente, revise los campos o intentelo de nuevo mas tarde.</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 style = "font-family:Montserrat;">¿Que deseas hacer con tu poesía?</h1>
+                        </div>
+                        <div class="card-body">
+
+                                <!-- Campos a editar. -->
+                                <div class="form-group">
+                                    <label for="title"><h3 style = "font-family:Montserrat;">Título</h3><p class="text-secondary">Escribe aquí el título. Titúlalo como lo sientas, también puedes intentar resumir tu poesía en pocas palabras.</p></label>
+                                    <input type="text" 
+                                    name="title" 
+                                    id="title" 
+                                    class ="form-control col-5"
+                                    style = "font-family:Sofia;"
+                                    #title="ngModel"
+                                    [(ngModel)]="poesia.title"
+                                    [ngClass]="{'is-invalid': title.errors && title.touched}"
+                                    required>
+                                    <div [hidden]="!title.errors?.required" class="invalid-feedback">
+                                    Titulo requerido.
+                                    </div>
+                                </div>
+                                
+                                <!-- Descripción -->
+                                <div class="form-group">
+                                    <label for="description"><h3 style = "font-family:Montserrat;">Descripción del poema</h3><p class="text-secondary">Escribe una pequeña descripción propia de tu poema.</p></label>
+                                    <input
+                                    name="description"
+                                    class ="form-control col-7"
+                                    style = "font-family:Sofia;"
+                                    #description="ngModel"
+                                    [(ngModel)]="poesia.description"
+                                    [ngClass]="{'is-invalid': description.errors && description.touched}"
+                                    required
+                                    minlength="6">
+                                    <div [hidden]="!description.errors?.required" class="invalid-feedback">
+                                    Contenido requerido.
+                                    </div>
+                                    <div [hidden]="!description.errors?.minlength" class="invalid-feedback">
+                                    Debe contener al menos 6 caracteres.
+                                    </div>
+                                </div>
+
+                                <!-- Contenido -->
+                                <div class="form-group">
+                                    <label for="image"><h3 style = "font-family:Montserrat;">Contenido</h3></label>
+                                    <textarea
+                                    name="image"
+                                    class ="form-control"
+                                    style = "font-family:Sofia;"
+                                    #image="ngModel"
+                                    [(ngModel)]="poesia.image"
+                                    [ngClass]="{'is-invalid': image.errors && image.touched}"
+                                    required
+                                    minlength="6"></textarea>
+                                    <div [hidden]="!image.errors?.required" class="invalid-feedback">
+                                    Contenido requerido.
+                                    </div>
+                                    <div [hidden]="!image.errors?.minlength" class="invalid-feedback">
+                                    Debe contener al menos 10 caracteres.
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

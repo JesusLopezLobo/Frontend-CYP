@@ -1,1 +1,75 @@
-<h1>{{title}}</h1>
+<!-- #e2d8bf -->
+<section class="py-4 mb-3 espacioPersonal rounded">
+    <div class="container">
+        <div class="row  ">
+            <div class="col">
+<!--                 <h1 align="center"  style = "font-family:Sofia;"><i><strong> T&nbsp;u &nbsp;&nbsp;&nbsp; e&nbsp;s&nbsp;p&nbsp;a&nbsp;c&nbsp;i&nbsp;o &nbsp;&nbsp;&nbsp; p&nbsp;e&nbsp;r&nbsp;s&nbsp;o&nbsp;n&nbsp;a&nbsp;l </strong></i> </h1>
+ -->            
+ <h1 align="center" style = "font-family:Sofia;color:#f2d6d8 ;"> <i><strong> T&nbsp;u &nbsp; e&nbsp;s&nbsp;a&nbsp;p&nbsp;c&nbsp;i&nbsp;o &nbsp; p&nbsp;e&nbsp;r&nbsp;s&nbsp;o&nbsp;n&nbsp;a&nbsp;l &nbsp;</strong></i> <i class="fab fa-studiovinari"></i></h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 mt-3">
+
+                <div class="card text-center mb-3">
+                    <div class="card-body">
+                        <h4>Imagen</h4>
+                        <h6>Nick</h6>
+                    </div>
+                </div>
+
+
+                <a [routerLink]="['/crear-poesia']" class="btn btn-dark rounded-circle btn-block">
+                    <i class="fas fa-feather-alt"> </i> Poesía
+                </a>
+
+
+            </div>
+
+            <div class="col-md-7">
+                <div *ngFor="let poesia of poesias">
+                    <div *ngIf="poesia.user_id == identity.sub">
+                        <ul class="list-group mt-3">
+                        
+                            <li class="list-group-item titulo"><h2><a [routerLink]="['/poesia', poesia.id]" style="color: #f2d6d8"><i class="fab fa-pied-piper-hat" style="color: #f2d6d8;"></i> {{poesia.title}} </a><i class="fab fa-pied-piper-hat fa-flip-horizontal" style="color:#f2d6d8;"></i> <a [routerLink]="['/personal']" (click)="deletePoesias(poesia.id)"><i style="color: #ff9100;" class="fas fa-trash-alt float-right mt-2"></i></a></h2></li>
+
+                            <li class="list-group-item descripcion"><p> <strong>Pequeña Descripción.</strong> </p><h4><i class="fab fa-pied-piper-alt"></i> "{{poesia.description}}" <i class="fab fa-pied-piper-alt fa-flip-horizontal"></i></h4></li>
+                            
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-3 mt-3">
+                <div class="card">
+
+                    <div class="card-header">
+                        <h4>Mensajes</h4>
+                    </div>
+                    <div class="card-body">
+                        <h6>Tus mensajes</h6>
+                    </div>
+
+                </div>
+
+                <div class="card mt-5">
+                    <div class="card-header">
+                        <h4>Notas</h4>
+                    </div>
+                    <div class="card-body">
+                        <h6>Tus notas</h6>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
