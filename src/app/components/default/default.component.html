@@ -1,11 +1,13 @@
 <!-- #e2d8bf -->
-<section class="py-4 mb-3 espacioPersonal rounded">
+<div class="fondo">
+<section class="py-4 espacioPersonal rounded">
     <div class="container">
         <div class="row  ">
             <div class="col">
 <!--                 <h1 align="center"  style = "font-family:Sofia;"><i><strong> T&nbsp;u &nbsp;&nbsp;&nbsp; e&nbsp;s&nbsp;p&nbsp;a&nbsp;c&nbsp;i&nbsp;o &nbsp;&nbsp;&nbsp; p&nbsp;e&nbsp;r&nbsp;s&nbsp;o&nbsp;n&nbsp;a&nbsp;l </strong></i> </h1>
  -->            
- <h1 align="center" style = "font-family:Sofia;color:#f2d6d8 ;"> <i><strong> T&nbsp;u &nbsp; e&nbsp;s&nbsp;a&nbsp;p&nbsp;c&nbsp;i&nbsp;o &nbsp; p&nbsp;e&nbsp;r&nbsp;s&nbsp;o&nbsp;n&nbsp;a&nbsp;l &nbsp;</strong></i> <i class="fab fa-studiovinari"></i></h1>
+                <h1 align="center" style = "color:#000000 ;"> <i><i class="fab fa-studiovinari"></i><strong>&nbsp; T&nbsp;U &nbsp; E&nbsp;S&nbsp;P&nbsp;A&nbsp;C&nbsp;I&nbsp;O &nbsp; P&nbsp;E&nbsp;R&nbsp;S&nbsp;O&nbsp;N&nbsp;A&nbsp;L &nbsp;</strong></i> <i class="fab fa-studiovinari"></i></h1>
+                <h4 align="center">En esta página podras encontrar tu espacio personal, nadie podrá ver tu contenido, podrás escribir relatos o poesía. Si quieres publicar algún relato dirigete a la sección de relatos.</h4>
             </div>
         </div>
     </div>
@@ -19,8 +21,10 @@
 
                 <div class="card text-center mb-3">
                     <div class="card-body">
-                        <h4>Imagen</h4>
-                        <h6>Nick</h6>
+                            <div class="avatar_mask" *ngIf="identity && identity.image">
+                              <img class="avatar_nav" src="{{url + 'user/avatar/' + identity.image }}" />
+                            </div>
+                            <strong>{{identity.name + ' ' + identity.surname}}</strong>
                     </div>
                 </div>
 
@@ -34,12 +38,12 @@
 
             <div class="col-md-7">
                 <div *ngFor="let poesia of poesias">
-                    <div *ngIf="poesia.user_id == identity.sub">
+                    <div *ngIf="poesia.user_id == identity.sub || poesia.user_id == identity.id">
                         <ul class="list-group mt-3">
                         
-                            <li class="list-group-item titulo"><h2><a [routerLink]="['/poesia', poesia.id]" style="color: #f2d6d8"><i class="fab fa-pied-piper-hat" style="color: #f2d6d8;"></i> {{poesia.title}} </a><i class="fab fa-pied-piper-hat fa-flip-horizontal" style="color:#f2d6d8;"></i> <a [routerLink]="['/personal']" (click)="deletePoesias(poesia.id)"><i style="color: #ff9100;" class="fas fa-trash-alt float-right mt-2"></i></a></h2></li>
+                            <li class="list-group-item titulo"><h2><a [routerLink]="['/poesia', poesia.id]" style="font-family:Sofia;color: #000000"><i class="fab fa-pied-piper-hat" style="color: #000000;"></i> {{poesia.title}} </a> <a [routerLink]="['/personal']" (click)="deletePoesias(poesia.id)"><i style="color: #000000;" class="fas fa-window-close float-right mt-2"></i></a></h2></li>
 
-                            <li class="list-group-item descripcion"><p> <strong>Pequeña Descripción.</strong> </p><h4><i class="fab fa-pied-piper-alt"></i> "{{poesia.description}}" <i class="fab fa-pied-piper-alt fa-flip-horizontal"></i></h4></li>
+                            <li class="list-group-item descripcion mb-2"><p> <strong>Pequeña Descripción.</strong> </p><h4><i class="fab fa-pied-piper-alt"></i> "{{poesia.description}}" <i class="fab fa-pied-piper-alt fa-flip-horizontal"></i></h4></li>
                             
                         </ul>
                     </div>
@@ -49,23 +53,81 @@
             </div>
 
             <div class="col-md-3 mt-3">
-                <div class="card">
+<!--                 <div class="card notasDiv">
 
-                    <div class="card-header">
+                    <div class="card-header notasTitulo">
                         <h4>Mensajes</h4>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body notas">
                         <h6>Tus mensajes</h6>
                     </div>
 
-                </div>
+                </div> -->
 
-                <div class="card mt-5">
-                    <div class="card-header">
+                <!-- NOTAS -->
+                <div class="card mb-3 notasDiv">
+                    <div class="card-header notasTitulo">
                         <h4>Notas</h4>
                     </div>
-                    <div class="card-body">
-                        <h6>Tus notas</h6>
+                    <div class="card-body notas">
+
+                        <!-- MOSTRAR TODOS LOS TÍTULOS DE NOTAS. -->
+                        <div *ngFor="let nota of notas">
+                            <div *ngIf="nota.user_id == identity.sub || nota.user_id == identity.id">
+                                <h5 class="text-white">{{nota.title}}  <a [routerLink]="['/personal']" (click)="deleteNotas(nota.id)"><i style="color: #000000;" class="far fa-times-circle float-right mt-2"></i></a></h5><br>
+                            </div>
+                        </div>
+
+                        <!-- BOTON MODAL -->
+                        <section id="actions" class="py-4 mb-4 rounded-circle notas">
+                                <a href="#" class="btn btn-dark rounded-circle circulo" data-toggle="modal" data-target="#agregarNotaModal">
+                                    <i class="fas fa-pen-fancy"></i> 
+                                </a>
+
+                                <div class="modal fade notas" id="agregarNotaModal">
+                                    <div class="modal-dialog modal-lg">
+                                      <div class="modal-content">
+                                        <div class="modal-header bg-dark text-white">
+                                          <h5 class="modal-title">Nueva nota.</h5>
+                                          <button class="close text-white" data-dismiss="modal" #botonCerrar>
+                                            <span>&times;</span>
+                                          </button>
+                                        </div>
+                                        
+                                  
+                                        <form #notasForm="ngForm" (submit)="onAgregarNota(notasForm)"> 
+                                          <div class="modal-body">
+                                            <div class="form-group">
+
+                                                <label for="titulo">Titulo</label>
+                                                <input 
+                                                  type="text" 
+                                                  name="titulo" 
+                                                  class="form-control"
+                                                  #title="ngModel"
+                                                  [(ngModel)]="nota.title"
+                                                  [ngClass]="{'is-invalid': title.errors && title.touched}"
+                                                  required >
+                                                  <div [hidden]="!title.errors?.required" class="invalid-feedback">
+                                                    Titulo requerido.
+                                                  </div> 
+
+                                            </div>   
+                                            
+                                            
+
+                                          </div>
+                                  
+                                          <div class="modal-footer">
+                                            <button type="submit" class="btn btn-outline-dark mt-3"><i class="fas fa-signature"></i> Firmar</button>
+                                          </div>
+                                  
+                                        </form>
+                                  
+                                      </div>
+                                    </div>
+                                  </div>
+                        </section>
                     </div>
                 </div>
 
@@ -73,3 +135,4 @@
         </div>
     </div>
 </section>
+</div>

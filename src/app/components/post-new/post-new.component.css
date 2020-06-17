@@ -1,0 +1,7 @@
+.fondo{
+    background-image: url("/assets/bosquemagico-opaco.jpeg"); 
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover; 
+}

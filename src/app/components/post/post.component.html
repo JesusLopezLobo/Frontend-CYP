@@ -1,0 +1,55 @@
+<!-- #e2d8bf -->
+<div class="fondo">
+    <section class="py-4 espacioPersonal rounded">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+    <!--                 <h1 align="center"  style = "font-family:Sofia;"><i><strong> T&nbsp;u &nbsp;&nbsp;&nbsp; e&nbsp;s&nbsp;p&nbsp;a&nbsp;c&nbsp;i&nbsp;o &nbsp;&nbsp;&nbsp; p&nbsp;e&nbsp;r&nbsp;s&nbsp;o&nbsp;n&nbsp;a&nbsp;l </strong></i> </h1>
+     -->            
+                    <h1 align="center" style = "color:#ffffff ;"> <i><i class="fas fa-book-reader"></i><strong>&nbsp;&nbsp;  TUS RELATOS  &nbsp;&nbsp;</strong><i class="fas fa-book-reader"></i></i></h1>
+                    <h4 style = "color:#ffffff ;" align="center">En esta página podrás escribir tus relatos y se publicarán directamente en el Inicio. Toda la comunidad podrá leerlos.</h4>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="relatoPadre">
+
+        <a [routerLink]="['/crear-entrada']" class="btn btn-dark rounded-circle btn-block mt-5 relatoHijo">
+            <i class="fas fa-feather-alt"> </i> Relato
+        </a>
+    </div>
+
+    
+    <section>
+        <div class="container">
+            <div class="row">
+    
+                <div class="col-md-12">
+                    <div *ngFor="let post of posts">
+                        <div *ngIf="post.user_id == identity.sub || post.user_id == identity.id">
+                            <div class="card mt-5 mb-5">
+                                <div class="card-header">
+                                        <h1><a href="#">{{post.title}}</a>
+                                        <div class="avatar_mask"> 
+                                                <img src="{{url + 'post/image/' + post.image}}">   
+                                        </div>
+                                        </h1>
+                                </div>
+
+                                <div class="card-body">
+            
+                                    <!-- Botones -->
+            
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+
+            </div>
+        </div>
+    </section>
+    </div>

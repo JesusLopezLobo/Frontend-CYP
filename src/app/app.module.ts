@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { AngularFileUploaderComponent, AngularFileUploaderModule } from 'angular-file-uploader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +14,14 @@ import { PoesiasNewComponent } from './components/poesias-new/poesias-new.compon
 import { PoesiasEditComponent } from './components/poesias-edit/poesias-edit.component';
 import { PoesiasDetailComponent } from './components/poesias-detail/poesias-detail.component';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { MensajesComponent } from './components/mensajes/mensajes.component';
+import { NotasDetailComponent } from './components/notas-detail/notas-detail.component';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { CategoryNewComponent } from './components/category-new/category-new.component';
+import { PostNewComponent } from './components/post-new/post-new.component';
+import { PostComponent } from './components/post/post.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
+import { PostEditComponent } from './components/post-edit/post-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +33,23 @@ import { InicioComponent } from './components/inicio/inicio.component';
     PoesiasEditComponent,
     PoesiasDetailComponent,
     InicioComponent,
+    MensajesComponent,
+    NotasDetailComponent,
+    UserEditComponent,
+    CategoryNewComponent,
+    PostNewComponent,
+    PostComponent,
+    PostDetailComponent,
+    PostEditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    FroalaViewModule.forRoot(),
+    FroalaEditorModule.forRoot(),
+    AngularFileUploaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

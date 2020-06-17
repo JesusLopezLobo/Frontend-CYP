@@ -20,6 +20,9 @@ export class PoesiaService {
     }
 
     create(token, poesia: Poesias): Observable<any>{
+        // Limpiar campo content.
+        poesia.image = GLOBAL.htmlEntities(poesia.image);
+
         let json = JSON.stringify(poesia);
         let params = "json=" + json;
 
@@ -30,6 +33,7 @@ export class PoesiaService {
     }
 
     getPoesias(): Observable<any>{
+        //console.log("getPoesias");
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
         return this._http.get(this.url + 'poesias', {headers: headers});
     }
@@ -39,6 +43,9 @@ export class PoesiaService {
     }
 
     update(token, poesia, id): Observable<any>{
+        // Limpiar campo content.
+        poesia.image = GLOBAL.htmlEntities(poesia.image);
+
         //console.log("guardar");
         let json = JSON.stringify(poesia);
         let params = "json=" + json;

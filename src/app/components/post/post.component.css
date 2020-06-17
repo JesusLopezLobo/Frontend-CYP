@@ -1,0 +1,100 @@
+
+
+.fondo{
+     background-image: url("/assets/bosquemagico-opaco.jpeg"); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+}
+
+/* .espacioPersonal{
+    background: rgba(99,25,235,1);
+    background: -moz-linear-gradient(left, rgba(99,25,235,1) 0%, rgba(99,25,235,1) 30%, rgba(248,67,254,1) 81%, rgba(248,67,254,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(99,25,235,1)), color-stop(30%, rgba(99,25,235,1)), color-stop(81%, rgba(248,67,254,1)), color-stop(100%, rgba(248,67,254,1)));
+    background: -webkit-linear-gradient(left, rgba(99,25,235,1) 0%, rgba(99,25,235,1) 30%, rgba(248,67,254,1) 81%, rgba(248,67,254,1) 100%);
+    background: -o-linear-gradient(left, rgba(99,25,235,1) 0%, rgba(99,25,235,1) 30%, rgba(248,67,254,1) 81%, rgba(248,67,254,1) 100%);
+    background: -ms-linear-gradient(left, rgba(99,25,235,1) 0%, rgba(99,25,235,1) 30%, rgba(248,67,254,1) 81%, rgba(248,67,254,1) 100%);
+    background: linear-gradient(to right, rgba(99,25,235,1) 0%, rgba(99,25,235,1) 30%, rgba(248,67,254,1) 81%, rgba(248,67,254,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6319eb', endColorstr='#f843fe', GradientType=1 );
+} */
+
+/* .espacioPersonal{
+    background-color: #fdfd96;
+} */
+
+/* .espacioPersonal{
+    background: rgba(245,125,88,1);
+background: -moz-linear-gradient(left, rgba(245,125,88,1) 0%, rgba(245,125,88,1) 2%, rgba(254,183,69,1) 24%, rgba(241,231,103,1) 50%, rgba(254,183,69,1) 76%, rgba(245,125,88,1) 97%, rgba(245,125,88,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(245,125,88,1)), color-stop(2%, rgba(245,125,88,1)), color-stop(24%, rgba(254,183,69,1)), color-stop(50%, rgba(241,231,103,1)), color-stop(76%, rgba(254,183,69,1)), color-stop(97%, rgba(245,125,88,1)), color-stop(100%, rgba(245,125,88,1)));
+background: -webkit-linear-gradient(left, rgba(245,125,88,1) 0%, rgba(245,125,88,1) 2%, rgba(254,183,69,1) 24%, rgba(241,231,103,1) 50%, rgba(254,183,69,1) 76%, rgba(245,125,88,1) 97%, rgba(245,125,88,1) 100%);
+background: -o-linear-gradient(left, rgba(245,125,88,1) 0%, rgba(245,125,88,1) 2%, rgba(254,183,69,1) 24%, rgba(241,231,103,1) 50%, rgba(254,183,69,1) 76%, rgba(245,125,88,1) 97%, rgba(245,125,88,1) 100%);
+background: -ms-linear-gradient(left, rgba(245,125,88,1) 0%, rgba(245,125,88,1) 2%, rgba(254,183,69,1) 24%, rgba(241,231,103,1) 50%, rgba(254,183,69,1) 76%, rgba(245,125,88,1) 97%, rgba(245,125,88,1) 100%);
+background: linear-gradient(to right, rgba(245,125,88,1) 0%, rgba(245,125,88,1) 2%, rgba(254,183,69,1) 24%, rgba(241,231,103,1) 50%, rgba(254,183,69,1) 76%, rgba(245,125,88,1) 97%, rgba(245,125,88,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f57d58', endColorstr='#f57d58', GradientType=1 );
+} */
+
+
+
+/* .espacioPersonal{
+    background: rgba(76,76,76,1);
+    background: -moz-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 35%, rgba(0,0,0,1) 53%, rgba(17,17,17,1) 60%, rgba(44,44,44,1) 75%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(76,76,76,1)), color-stop(12%, rgba(89,89,89,1)), color-stop(25%, rgba(102,102,102,1)), color-stop(35%, rgba(71,71,71,1)), color-stop(53%, rgba(0,0,0,1)), color-stop(60%, rgba(17,17,17,1)), color-stop(75%, rgba(44,44,44,1)), color-stop(76%, rgba(43,43,43,1)), color-stop(91%, rgba(28,28,28,1)), color-stop(100%, rgba(19,19,19,1)));
+    background: -webkit-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 35%, rgba(0,0,0,1) 53%, rgba(17,17,17,1) 60%, rgba(44,44,44,1) 75%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+    background: -o-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 35%, rgba(0,0,0,1) 53%, rgba(17,17,17,1) 60%, rgba(44,44,44,1) 75%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+    background: -ms-linear-gradient(left, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 35%, rgba(0,0,0,1) 53%, rgba(17,17,17,1) 60%, rgba(44,44,44,1) 75%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+    background: linear-gradient(to right, rgba(76,76,76,1) 0%, rgba(89,89,89,1) 12%, rgba(102,102,102,1) 25%, rgba(71,71,71,1) 35%, rgba(0,0,0,1) 53%, rgba(17,17,17,1) 60%, rgba(44,44,44,1) 75%, rgba(43,43,43,1) 76%, rgba(28,28,28,1) 91%, rgba(19,19,19,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313', GradientType=1 );
+} */
+
+/* .espacioPersonal{
+    background: rgba(232,44,232,1);
+    background: -moz-linear-gradient(left, rgba(232,44,232,1) 0%, rgba(158,76,158,1) 5%, rgba(44,44,44,1) 17%, rgba(0,0,0,1) 39%, rgba(43,43,43,1) 49%, rgba(17,17,17,1) 84%, rgba(194,199,42,1) 98%, rgba(219,209,27,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(232,44,232,1)), color-stop(5%, rgba(158,76,158,1)), color-stop(17%, rgba(44,44,44,1)), color-stop(39%, rgba(0,0,0,1)), color-stop(49%, rgba(43,43,43,1)), color-stop(84%, rgba(17,17,17,1)), color-stop(98%, rgba(194,199,42,1)), color-stop(100%, rgba(219,209,27,1)));
+    background: -webkit-linear-gradient(left, rgba(232,44,232,1) 0%, rgba(158,76,158,1) 5%, rgba(44,44,44,1) 17%, rgba(0,0,0,1) 39%, rgba(43,43,43,1) 49%, rgba(17,17,17,1) 84%, rgba(194,199,42,1) 98%, rgba(219,209,27,1) 100%);
+    background: -o-linear-gradient(left, rgba(232,44,232,1) 0%, rgba(158,76,158,1) 5%, rgba(44,44,44,1) 17%, rgba(0,0,0,1) 39%, rgba(43,43,43,1) 49%, rgba(17,17,17,1) 84%, rgba(194,199,42,1) 98%, rgba(219,209,27,1) 100%);
+    background: -ms-linear-gradient(left, rgba(232,44,232,1) 0%, rgba(158,76,158,1) 5%, rgba(44,44,44,1) 17%, rgba(0,0,0,1) 39%, rgba(43,43,43,1) 49%, rgba(17,17,17,1) 84%, rgba(194,199,42,1) 98%, rgba(219,209,27,1) 100%);
+    background: linear-gradient(to right, rgba(232,44,232,1) 0%, rgba(158,76,158,1) 5%, rgba(44,44,44,1) 17%, rgba(0,0,0,1) 39%, rgba(43,43,43,1) 49%, rgba(17,17,17,1) 84%, rgba(194,199,42,1) 98%, rgba(219,209,27,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e82ce8', endColorstr='#dbd11b', GradientType=1 );
+} */
+
+.espacioPersonal{
+
+    background: rgba(0,0,0,1);
+    background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(36,27,36,1) 27%, rgba(66,11,66,1) 47%, rgba(36,27,36,1) 67%, rgba(19,19,19,1) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(0%, rgba(28,28,28,1)), color-stop(27%, rgba(36,27,36,1)), color-stop(47%, rgba(66,11,66,1)), color-stop(67%, rgba(36,27,36,1)), color-stop(100%, rgba(19,19,19,1)));
+    background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(36,27,36,1) 27%, rgba(66,11,66,1) 47%, rgba(36,27,36,1) 67%, rgba(19,19,19,1) 100%);
+    background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(36,27,36,1) 27%, rgba(66,11,66,1) 47%, rgba(36,27,36,1) 67%, rgba(19,19,19,1) 100%);
+    background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(36,27,36,1) 27%, rgba(66,11,66,1) 47%, rgba(36,27,36,1) 67%, rgba(19,19,19,1) 100%);
+    background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(28,28,28,1) 0%, rgba(36,27,36,1) 27%, rgba(66,11,66,1) 47%, rgba(36,27,36,1) 67%, rgba(19,19,19,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#131313', GradientType=1 );  
+/*     background-color: rgba(103, 255, 255, 0.45);
+    border-style: solid;
+    border-width: 3px;
+    margin-left: 10%;
+    margin-right: 10%; */
+}
+
+.relatoPadre{
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.relatoHijo{
+    width: 200px;
+}
+
+.avatar_mask{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 400px;
+    float: right;
+}
+
+.avatar_mask img{
+    width: 50px;
+}

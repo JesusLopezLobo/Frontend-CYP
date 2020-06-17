@@ -1,0 +1,67 @@
+<div class="container mt-5 mb-5">
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <!-- Imagen -->
+            <div class="post-image w-25 image" *ngIf="post">
+                <img src="{{url + 'post/image/' + post.image}}" class="w-100">
+                
+            </div>
+
+            <div class="card" *ngIf="post">
+                <div class="card-header">
+                    <h4>{{post.title}}</h4>
+                </div>
+                <div class="card-body" *ngIf="post">
+                    <textarea [froalaEditor]="froala_options" id="content" name="content" [(ngModel)]="post.content">{{post.content}}</textarea>
+                </div>
+            </div>
+
+            <div class="card mt-1">
+                <div class="card-body">
+                    <form #commentNew="ngForm" (ngSubmit)="onSubmit(commentNew)">
+                        <div class="modal-body">
+
+                            <!-- Titulo -->
+                            <div class="form-group">
+                                <input type="text" 
+                                placeholder="Escribe tu comentario..."
+                                name="content"
+                                class ="form-control col-12"
+                                #content="ngModel"
+                                [(ngModel)]="comment.content"
+                                required>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+
+                        </div>
+                    </form>
+                    <hr>
+                    <div *ngFor="let comment of comments" >
+                        <div *ngFor="let user of users">
+
+                            <div *ngIf="post && comment.post_id == post.id">
+                                <div *ngIf="comment.user_id == user.id">
+
+                                    {{comment.content}}
+                                    <div class="avatar_mask text-right">
+                                        <img class="avatar_nav" src="{{url + 'user/avatar/' + user.image }}" />
+                                    </div>
+                                    <br>
+                                    <p align="right"><strong>{{user.name}} {{user.surname}}</strong></p><hr>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+

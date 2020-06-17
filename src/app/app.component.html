@@ -10,21 +10,41 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul *ngIf="identity" class="navbar-nav">
             <li class="nav-item px-2">
-              <a routerLink="inicio" class="nav-link">Inicio</a>
+              <a routerLink="inicio" class="nav-link"><i style="color:rgb(0, 183, 255);" class="fas fa-house-user"></i></a>
             </li>
           </ul>
+          
           <ul class="navbar-nav ml-auto">
+            <li *ngIf="identity && identity.image" class="nav-item">
+              <div class="avatar_mask">
+                <img class="avatar_nav" src="{{url + 'user/avatar/' + identity.image }}" />
+              </div>
+              
+            </li>
             <li class="nav-item dropdown mr-3" *ngIf="identity">
               <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" >
-                <li class="fas fa-user"></li> {{identity.name + ' ' + identity.surname}}
+                <li></li> {{identity.name + ' ' + identity.surname}}
               </a>
               <div class="dropdown-menu">
                 <a [routerLink]="['/personal']" class="dropdown-item">
                   <i class="fab fa-studiovinari"></i> Personal
                 </a>
+                <a [routerLink]="['/entradas']" class="dropdown-item">
+                  <i class="fas fa-book-reader"></i> Relatos
+                </a>
+                <a [routerLink]="['/ajustes']" class="dropdown-item">
+                  <i class="fab fa-galactic-senate"></i> Configuración
+                </a>
+                <a [routerLink]="['/crear-categoria']" class="dropdown-item" >
+                  <i class="fas fa-plus-circle"></i> Crear Categoria
+                </a>
               </div>
             </li>
-          
+            <li class="nav-item" *ngIf="identity">
+              <a style="cursor: pointer" class="nav-link" [routerLink]="['mensajes']">
+                <i style="color:rgb(255, 145, 0);" class="far fa-comments"></i> 
+              </a>
+            </li>
             <li class="nav-item" *ngIf="!identity">
               <a routerLink="login" class="nav-link" routerLinkActive="router-link-active">
                  <li class="fas fa-user"></li> Login
@@ -43,11 +63,12 @@
               </a>
             </li> -->
       
-            <li class="nav-item" *ngIf="identity">
+            <li class="nav-item" style="padding-left: 5%;" *ngIf="identity">
               <a style="cursor: pointer" class="nav-link" [routerLink]="['logout', 1]">
                 <i style="color:red;" class="fas fa-power-off"></i> 
               </a>
             </li>
+
       
           </ul>
         </div>
@@ -55,10 +76,40 @@
       </nav>
     
       <!-- Contenido -->
-<div class="container col-lg-11 col-lg-offset-1">
+<!-- <div class="container col-lg-11 col-lg-offset-1">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12"> -->
         <router-outlet></router-outlet>
+<!--     </div>
+  </div>
+</div> -->
+
+<footer class="text-light piePagina " style="background: #2d3246;">
+  <div class="container">
+    <div class="row row-30">
+
+      <div class="col-md-3 col-xl-5">
+        <div class="pr-xl-5 mt-4">
+          <p>Somos una pequeña comunidad, para convertir lo mas puro en realidad.</p>
+          <!-- Rights-->
+          <p ><span>©  </span><span>2020</span><span></span><span>. </span><span>Todos los derechos reservados.</span></p>
+        </div>
+      </div>
+
+      <div class="col-md-3 mt-5">
+        <dl class="contact-list" >
+          <dt>Dirección:</dt>
+          <dd>Huerto Paco, Huelva, España</dd>
+        </dl>
+      </div>
+
+      <div class="col-md-4 mt-5">
+        <dl class="contact-list">
+          <dt>email:</dt>
+          <dd><a href="#">jesuslopez.profesional@gmail.com</a></dd>
+        </dl>
+      </div>
+
     </div>
   </div>
-</div>
+  </footer>

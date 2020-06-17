@@ -1,0 +1,107 @@
+
+<section>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col">
+                <div class="card mt-5">
+
+                    <div class="card-body bg-light">
+<!--                         <form>
+                            <div class="form-group">
+                                <label for="name"><h3>Título:</h3>
+                                <p>Título en el que te inspira tu poema.</p></label>
+                                <input type="text" name="" id="" class="form-control col-5">
+                            </div>
+                            <div class="form-group">
+                                <label for="name"><h3>Poesía:</h3>
+                                <p>Escribe el contenido de la poesía.</p></label>
+                                <input type="text" name="" id="" class="form-control col-5">
+                            </div>
+                        </form> -->
+
+                        <div *ngIf="status == 'error'">
+                            <h6 class="text-danger"><i class="fas fa-exclamation-circle"></i>  Ha ocurrido un error al insertar tu relato, inténtelo más tarde.</h6>
+                        </div>
+                        <div *ngIf="status == 'success'">
+                            <h6 class="text-success"><i class="fas fa-exclamation-circle"></i> Su relato se ha guardado con éxito.</h6>
+                        </div>
+
+                        <form #postNew="ngForm" (ngSubmit)="onSubmit(postNew)">
+                            <div class="modal-body">
+    
+                                <!-- Titulo -->
+                                <div class="form-group">
+                                    <label for="title"><h3>Título</h3><p class="text-secondary">Escribe aquí el título. Titúlalo como lo sientas, también puedes intentar resumir tu relato en pocas palabras.</p></label>
+                                    <input type="text" 
+                                    name="title" 
+                                    id="title" 
+                                    class ="form-control col-5"
+                                    #title="ngModel"
+                                    [(ngModel)]="post.title"
+                                    [ngClass]="{'is-invalid': title.errors && title.touched}"
+                                    required>
+                                    <div [hidden]="!title.errors?.required" class="invalid-feedback">
+                                    Titulo requerido.
+                                    </div>
+                                </div>
+                                <!-- ========= -->
+
+                                <!-- Contenido -->
+                                <div class="form-group">
+                                    <label for="content"><h3>Contenido</h3></label>
+                                    <textarea
+                                    [froalaEditor]="froala_options"
+                                    name="content"
+                                    class ="form-control"
+                                    #content="ngModel"
+                                    [(ngModel)]="post.content"
+                                    [ngClass]="{'is-invalid': content.errors && content.touched}"
+                                    required
+                                    minlength="10"></textarea>
+                                    <div [hidden]="!content.errors?.required" class="invalid-feedback">
+                                    Contenido requerido.
+                                    </div>
+                                    <div [hidden]="!content.errors?.minlength" class="invalid-feedback">
+                                    Debe contener al menos 10 caracteres.
+                                    </div>
+                                </div>
+                                <!-- ========= -->
+                            
+                                <!-- Categorias -->
+
+                                <div class="form-group">
+                                    <label for="category_id">Categoria</label>
+                                    <select name="category_id" 
+                                    #category="ngModel" 
+                                    [(ngModel)]="post.category_id"
+                                    class="form-control">
+                                        <option *ngFor="let category of categories" value="{{category.id}}" >
+                                            {{category.name}}
+                                        </option>
+                                </select>
+                                </div>
+
+                                <!-- ========= -->
+
+                                <!-- Imagen -->
+
+<!--                                 <label for="image">Imagen</label>
+                                <angular-file-uploader
+                                    [config] = "afuConfig"
+                                    (ApiResponse)="imageUpload($event)">
+                                </angular-file-uploader> -->
+
+                                <!-- ========= -->
+
+                                <button type="submit" class="btn btn-outline-dark mt-3"><i class="fas fa-signature"></i> Firmar</button>
+                            
+    
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

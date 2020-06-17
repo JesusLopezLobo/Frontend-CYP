@@ -10,28 +10,7 @@
                     <div class="col-md-2">
                         <button type="submit" class="btn btn-light btn-block botonGuardar" ><i class="fas fa-check"></i> Editar Poesia </button>
                     </div>
-                    <div class="col-md-2">
-                        <a [routerLink]="['/personal']" class="btn btn-light btn-block botonPublicar"><i class="fas fa-check"></i> Publicar Poesia </a>
-                    </div>
-
-
             
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div *ngIf="status_poesia == 'success'">
-                            <h6 class="text-success"><i class="fas fa-check"></i> El poema se ha editado correctamente.</h6>
-                        </div>
-                
-                        <div *ngIf="status_poesia == 'error'">
-                            <h6 class="text-danger"><i class="fas fa-exclamation-circle"></i>  El poema no se ha editado correctamente, revise los campos o intentelo de nuevo mas tarde.</h6>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -44,6 +23,21 @@
                             <h1 style = "font-family:Montserrat;">¿Que deseas hacer con tu poesía?</h1>
                         </div>
                         <div class="card-body">
+
+                                <!-- Mensaje de error o exito, según la se cambia o no la poesía. -->
+                                <section>
+                                        <div class="row">
+                                            <div class="col">
+                                                <div *ngIf="status_poesia == 'success'">
+                                                    <h6 class="text-success"><i class="fas fa-check"></i> El poema se ha editado correctamente.</h6><br>
+                                                </div>
+                                        
+                                                <div *ngIf="status_poesia == 'error'">
+                                                    <h6 class="text-danger"><i class="fas fa-exclamation-circle"></i>  El poema no se ha editado correctamente, revise los campos o intentelo de nuevo mas tarde.</h6><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </section>
 
                                 <!-- Campos a editar. -->
                                 <div class="form-group">
@@ -86,6 +80,7 @@
                                 <div class="form-group">
                                     <label for="image"><h3 style = "font-family:Montserrat;">Contenido</h3></label>
                                     <textarea
+                                    [froalaEditor]="froala_options"
                                     name="image"
                                     class ="form-control"
                                     style = "font-family:Sofia;"
@@ -93,7 +88,7 @@
                                     [(ngModel)]="poesia.image"
                                     [ngClass]="{'is-invalid': image.errors && image.touched}"
                                     required
-                                    minlength="6"></textarea>
+                                    minlength="6">{{poesia.image}}</textarea>
                                     <div [hidden]="!image.errors?.required" class="invalid-feedback">
                                     Contenido requerido.
                                     </div>

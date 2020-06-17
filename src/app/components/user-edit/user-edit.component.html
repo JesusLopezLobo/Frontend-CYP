@@ -1,0 +1,164 @@
+<section id="registro">
+    <div class="container">
+        <div class="row">
+            <div class="col-10 mx-auto">
+                <div class="card mt-4">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-5 bg-light">
+
+                                <div class="card-header bg-secondary text-white rounded mt-1">
+                                    Configuración
+                                </div>
+                                <div class="card-body">
+                                    editar perfil.
+                                </div>
+
+                            </div>
+
+                            <div class="col-7">
+
+                                <div class="card-body">
+
+                                    <div *ngIf="status_User == 'error'">
+                                        <h6 class="text-danger"><i class="fas fa-exclamation-circle"></i> Los datos no se han podido registrar, intentelo mas tarde.</h6>
+                                    </div>
+
+                                    <div *ngIf="status_User == 'success'">
+                                        <h6 class="text-success"><i class="fas fa-exclamation-circle"></i> Los datos se han registrado correctamente.</h6>
+                                    </div>
+                
+                                    <form #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
+                                        <div class="modal-body">
+                
+                                            <!-- NOMBRE -->
+                                            <div class="form-group">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-2 mt-2">
+                                                            <label for="name">Nombre</label>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <input type="text"
+                                                            name="name"
+                                                            id="name"
+                                                            class ="form-control bg-light"
+                                                            #name="ngModel"
+                                                            [(ngModel)]="user.name"
+                                                            [ngClass]="{'is-invalid': name.errors && name.touched}"
+                                                            required
+                                                            minlength="2">
+                                                            <div [hidden]="!name.errors?.required" class="invalid-feedback">
+                                                            Nombre requerido.
+                                                            </div>
+                                                            <div [hidden]="!name.errors?.minlength" class="invalid-feedback">
+                                                            Debe contener al menos 2 caracteres.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ========= -->
+                
+                                            <!-- APELLIDOS -->
+                                            <div class="form-group">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-2 mt-2">
+                                                            <label for="surname">Apellidos</label>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <input type="text"
+                                                            name="surname"
+                                                            id="surname"
+                                                            class ="form-control bg-light"
+                                                            #surname="ngModel"
+                                                            [(ngModel)]="user.surname"
+                                                            [ngClass]="{'is-invalid': surname.errors && surname.touched}"
+                                                            required
+                                                            minlength="2">
+                                                            <div [hidden]="!surname.errors?.required" class="invalid-feedback">
+                                                            Apellidos requerido.
+                                                            </div>
+                                                            <div [hidden]="!surname.errors?.minlength" class="invalid-feedback">
+                                                            Debe contener al menos 2 caracteres.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ========= -->
+                
+                                            <!-- EMAIL -->
+                                            
+                                            <div class="form-group">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-md-2 mt-2">
+                                                            <label for="email">Email</label>
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="email" id="email" class ="form-control bg-light"
+                                                            #email="ngModel"
+                                                            [(ngModel)]="user.email"
+                                                            [ngClass]="{'is-invalid': email.errors && email.touched}"
+                                                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"
+                                                            required>
+                                                            <div [hidden]="!email.errors?.required" class="invalid-feedback">
+                                                            Email requerido.
+                                                            </div>
+                                                            <div [hidden]="!email.errors?.pattern" class="invalid-feedback">
+                                                            Email no válido.
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- ========= -->
+                
+                                            <!-- IMAGE -->
+                                                <div class="form-group">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-2 mt-2">
+                                                                <label for="email">Avatar</label>
+                                                            </div>
+                                                            <div class="col-md-10">
+                                                                <div *ngIf="identity && identity.image">
+                                                                    <img class="avatar_edit" src="{{url + 'user/avatar/' + identity.image }}" />
+                                                                </div>
+                                                                <angular-file-uploader
+                                                                [config]="afuConfig"
+                                                                (ApiResponse)="avatarUpload($event)">
+                                                                </angular-file-uploader>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                
+                                            <!-- ========= -->
+                
+                                        <div class="container">
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-4">
+                                                    <button type="submit" class="btn btn-primary ">Guardar Cambios</button>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                     </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

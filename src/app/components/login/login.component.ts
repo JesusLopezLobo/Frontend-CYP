@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       private _router: Router,
       private _userService: UserService) { 
     this.title= 'Identifícate';
-    this.user = new User(1, 'user', '', '', '', '');
+    this.user = new User(1, 'user', '', '', '', '', '');
   }
 
   ngOnInit(): void {
@@ -48,6 +48,9 @@ export class LoginComponent implements OnInit {
             response => {
 
               this.identity = response;
+              //console.log(this.token);
+              //console.log(this.identity);
+              localStorage.setItem('token', this.token);
               localStorage.setItem('identity', JSON.stringify(this.identity)); // Almacenamos el identity en LocalStorage.
 
               // Redirección.

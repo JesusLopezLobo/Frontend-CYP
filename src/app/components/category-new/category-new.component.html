@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form #categoryForm="ngForm" (ngSubmit)="onSubmit(categoryForm)">
+                <div class="modal-body">
+            
+                    <!-- Mensaje de error o exito, según la se cambia o no la poesía. -->
+                    <section>
+                        <div class="row">
+                            <div class="col">
+                                <div *ngIf="status == 'success'">
+                                    <h6 class="text-success"><i class="fas fa-check"></i> La categoria se ha creado correctamente.</h6><br>
+                                </div>
+                        
+                                <div *ngIf="status == 'error'">
+                                    <h6 class="text-danger"><i class="fas fa-exclamation-circle"></i>  No se ha podido registrar la categoria, intentelo de nuevo mas tarde.</h6><br>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- NAME -->
+                    <div class="form-group">
+                        <label for="name">Tipo de Categoria</label>
+                        <input type="text"
+                        name="name"
+                        id="name"
+                        class ="form-control"
+                        #name="ngModel"
+                        [(ngModel)]="category.name"
+                        [ngClass]="{'is-invalid': name.errors && name.touched}"
+                        required>
+                        <div [hidden]="!name.errors?.required" class="invalid-feedback">
+                            Campo requerido
+                        </div>
+
+                    </div>
+                    <!-- ========= -->
+            
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-warning btn-block">Crear</button>
+                </div>
+            
+                </div>
+            </form>
+
+            <!-- LISTADO CATEGORIAS. -->
+
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h2 class="mb-5 ml-5">Listado De Categorias</h2>
+                    <div *ngFor="let category of categories">
+                        <ul>
+                            <li>{{category.name}}<a [routerLink]="['/crear-categoria']" (click)="deleteCategory(category.id)"><i style="color: #000000;" class="fas fa-window-close float-right mt-2"></i></a></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

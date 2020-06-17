@@ -17,6 +17,12 @@ export class PoesiasNewComponent implements OnInit {
   public poesia: Poesias;
   public status_poesia: string;
 
+  public froala_options: Object = {
+    charCounterCount: true,
+    language: 'es',
+    toolbarButtons: ['bold', 'italic', 'underline']
+  };
+
   constructor(private _route: ActivatedRoute,
     private _router: Router,
     private _userService: UserService,

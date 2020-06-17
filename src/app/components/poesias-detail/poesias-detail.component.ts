@@ -16,6 +16,11 @@ export class PoesiasDetailComponent implements OnInit {
   public token;
   public status_poesia;
 
+  public froala_options: Object = {
+    charCounterCount: true,
+    language: 'es',
+  };
+
 
   constructor(private _route: ActivatedRoute,
     private _router: Router,
@@ -52,6 +57,7 @@ export class PoesiasDetailComponent implements OnInit {
   }
 
   onSubmit(form){
+    console.log(form);
     // Servicio.
     //console.log(this.poesia.id);
     this._poesiaService.update(this.token, this.poesia, this.poesia.id).subscribe(

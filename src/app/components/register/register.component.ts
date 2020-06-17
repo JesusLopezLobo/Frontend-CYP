@@ -19,7 +19,7 @@ export class RegisterComponent implements OnInit {
       private _userService: UserService) { 
 
     this.title = 'Regístrate';
-    this.user = new User(1, 'user', '', '', '', '');
+    this.user = new User(1, 'user', '', '', '', '', 'defecto.jpeg');
 
   }
 
@@ -27,8 +27,8 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(form){
-    console.log(this.user);
-    console.log(this._userService.pruebas);
+/*     console.log(this.user);
+    console.log(this._userService.pruebas); */
 
     this._userService.register(this.user).subscribe(
         response => {
